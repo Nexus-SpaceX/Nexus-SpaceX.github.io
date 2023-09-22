@@ -1,4 +1,8 @@
-`For all legal reasons this was a joke`
+# For all legal reasons this was a joke
+<br> 
+<br> 
+<br> 
+<br> 
 
 
 
@@ -8,5 +12,8 @@ T̵̛̑̐̇̎̾̒̿͒̋̊̈́́́̎͗͆͗͒̏́̋̐͆̌̀̀̾̋̅̄̔̓̇̿̕͘͝�
 
 
 
-
+<br> 
+<br> 
+<br> 
+<br> 
 all travelers will have a background check performed by the US Space Force
