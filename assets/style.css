@@ -41,6 +41,10 @@ h3 {
   font-size: 1.5vw;
   text-align: center;
 }
+h4 {
+  font-size: 1vw;
+  text-align: center;
+}
 
 p {
   padding: 10px;
@@ -52,18 +56,18 @@ nav {
   padding: 20px;
 }
 
-nav a {
+.nav-a {
   font-family: "D-DIN-Bold", Arial, Verdana, sans-serif;
-  padding-left: 5px;
-  padding-right: 5px;
   text-decoration: none;
   transition: opacity 0.6s linear;
+  position: relative;
 }
 
-nav a::after {
+.nav-a::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 95%;
+  padding-left: 5%;
   height: 1px;
   background: #f8f8f8;
   left: 0;
@@ -73,9 +77,54 @@ nav a::after {
   transition: transform 200ms ease-in-out;
 }
 
-nav a:hover::after {
+.nav-a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.button {
+  color: #FFF;
+  background: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #FFF;
+  padding: 10px;
+  margin-top: 0.5em;
+  width: 800px;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+}
+.button::before {
+  background: #FFF;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.button::after {
+  background: #FFF;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.button:hover {
+  color: #000;
+  cursor: pointer;
+}
+.animated_button::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform-origin: top center;
+  transform: scale3d(1, 0, 1);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.animated_button:hover::after {
+  height: 100%;
+  width: 100%;
+  transform: scale3d(1, 1, 1);
+  transform-origin: bottom center;
 }
 
 main {
@@ -140,6 +189,32 @@ footer a {
   padding-top: 50px;
 }
 
+#header-dragon {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: border-box;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+    url("falconXL.jpeg");
+  height: 375px;
+  padding: 0px;
+  padding-top: 50px;
+  background-position: 30% 50%;
+}
+
+#header-civ {
+  width: 100%;
+  background-size: cover;
+  background-clip: border-box;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+    url("flyby.webp");
+  height: 375px;
+  padding: 0px;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 #fleet {
   width: 100%;
   background-repeat: no-repeat;
@@ -154,29 +229,145 @@ footer a {
   background-position: 30% 50%;
 }
 
-#novaLink {
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-clip: border-box;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
-    url("novaLink.png");
-  height: 600px;
-  padding: 0px;
-  padding-top: 325px;
-  padding-bottom: 25px;
-  background-position: 30% 50%;
-}
 
 #flyby {
   width: 100%;
   background-repeat: no-repeat;
   background-clip: border-box;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
-    url("flyby.jpeg");
+    url("flyby.webp");
   height: 600px;
   padding: 0px;
   padding-top: 325px;
   padding-bottom: 25px;
   background-size: cover;
 }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+#ham-menu {
+  display: none;
+}
+
+label[for="ham-menu"] {
+  display: block;
+  position: fixed;
+  top: 24px;
+  left: 92%;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background-color: none;
+}
+.ham-menu {
+  width: 20vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 80vw;
+  visibility: hidden;
+  transform: translate(200%);
+  z-index: 998;
+  background-color: #000000;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ham-menu > ul {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+  height: 80%;
+}
+.ham-menu > ul > li {
+  text-align: right;
+  font-size: 15px;
+  padding: 5px;
+  padding-top: 30px;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.ham-menu > ul > li:hover{
+  color: #cac4c4;
+}
+
+hr {
+  border: none;
+  background-color: #717171;
+  height: 1px;
+}
+
+#ham-menu:checked + label {
+  background-color: transparent;
+  border-color: rgba(18,18,18, 0.51);
+}
+#ham-menu:checked ~ div.ham-menu {
+  transform: translate(0px);
+  visibility: visible;
+}
+.full-page-black {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18,18,18, 0.51);
+  z-index: 997;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: 500ms;
+}
+#ham-menu:checked ~ div.full-page-black {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+[for="ham-menu"] > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+.menu-line {
+  display: block;
+  width: 12px;
+  height: 2px;
+  margin: 4px 0 2px;
+  background-color: #fff;
+  transition: 500ms;
+  transform-origin: right center;
+}
+#ham-menu:checked + label span {
+  background-color: rgb(255,255,255);
+}
+
+.centre-text {
+  text-align: center;
+}
+.bold-text {
+  font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+  /* Element you want to hide */
+  #wrapLinks {
+    display: none;
+  }
+
+  .spacexTitle {
+    margin-left: calc(50% - 125px);
+  }
+}
+
